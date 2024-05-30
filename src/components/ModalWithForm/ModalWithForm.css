@@ -95,4 +95,8 @@
     margin-bottom: 8px;
     accent-color: #0000;
   }
+
+  .modal__close {
+    background-image: url("../../images/Close.png");
+  }
   
