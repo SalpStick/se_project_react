@@ -11,6 +11,7 @@
     visibility: hidden;
     opacity: 0;
     transition: opacity 0.4s linear, visibility 0.3s;
+    color: black;
   }
   
   .modal_opened {
@@ -52,6 +53,7 @@
   }
   
   .modal__input {
+    background: none;
     display: block;
     border: none;
     border-bottom: 1px solid #000;
@@ -60,6 +62,7 @@
     margin-bottom: 24px;
     width: 100%;
     margin-top: 3px;
+    color: black;
   }
   
   .modal__radio-buttons {
@@ -76,6 +79,7 @@
     height: 36px;
     width: 124px;
     font-size: 16px;
+    line-height: 20px;
     font-family: inherit;
     margin-top: 32px;
     border-radius: 4px;
