@@ -17,6 +17,7 @@ function App() {
     },
     city: "",
   });
+  console.log("weatherData");
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [selectedWeather, setSelectedWeather] = useState(null);

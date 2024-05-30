@@ -1,11 +1,11 @@
-import dayClear from "../images/day/clear.png";
-import dayCloudy from "../images/day/clouds.png";
+import daySunny from "../images/day/sunny.png";
+import dayCloudy from "../images/day/cloudy.png";
 import dayFog from "../images/day/fog.png";
 import dayRain from "../images/day/rain.png";
 import daySnow from "../images/day/snow.png";
 import dayStorm from "../images/day/storm.png";
-import nightClear from "../images/night/clear.png";
-import nightCloudy from "../images/night/clouds.png";
+import nightSunny from "../images/night/sunny.png";
+import nightCloudy from "../images/night/cloudy.png";
 import nightFog from "../images/night/fog.png";
 import nightRain from "../images/night/rain.png";
 import nightSnow from "../images/night/snow.png";
@@ -15,7 +15,7 @@ export const weatherOptions = [
   {
     day: true,
     condition: "clear",
-    url: dayClear,
+    url: daySunny,
   },
   {
     day: true,
@@ -45,7 +45,7 @@ export const weatherOptions = [
   {
     day: false,
     condition: "clear",
-    url: nightClear,
+    url: nightSunny,
   },
   {
     day: false,
