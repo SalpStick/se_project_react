@@ -17,7 +17,6 @@ function App() {
     },
     city: "",
   });
-  console.log("weatherData");
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [selectedWeather, setSelectedWeather] = useState(null);
@@ -67,7 +66,7 @@ function App() {
       <div ref={modalRef}>
         <ModalWithForm
           titleText="New garment"
-          buttonText="Add Garment"
+          buttonText="Add garment"
           isOpen={activeModal === "add-garment"}
           closeActiveModal={closeActiveModal}
         >
