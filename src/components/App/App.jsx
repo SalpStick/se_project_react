@@ -34,11 +34,11 @@ function App() {
     setSelectedWeather(event.target.value);
   };
 
-  const handleOutsideClick = (event) => {
-    if (modalRef.current && !modalRef.current.contains(event.target)) {
-      setActiveModal("");
-    }
-  };
+  // const handleOutsideClick = (event) => {
+  //   if (modalRef.current && !modalRef.current.contains(event.target)) {
+  //     closeActiveModal();
+  //   }
+  // };
 
   useEffect(() => {
     getWeather(coordinates, APIkey)
@@ -49,12 +49,12 @@ function App() {
       .catch(console.error);
   }, []);
 
-  useEffect(() => {
-    document.addEventListener("mousedown", handleOutsideClick);
-    return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
-    };
-  }, []);
+  // useEffect(() => {
+  //   document.addEventListener("mousedown", handleOutsideClick);
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleOutsideClick);
+  //   };
+  // }, []);
 
   return (
     <div className="page">
