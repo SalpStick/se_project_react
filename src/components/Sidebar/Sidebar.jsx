@@ -1,5 +1,6 @@
 import avatar from "../../assets/profile image.svg";
-import "./SideBar.css";
+import "./Sidebar.css";
+
 function SideBar() {
   return (
     <div className="sidebar-page">
