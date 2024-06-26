@@ -23,3 +23,28 @@
   .modal__container_type_image .modal__close {
     background-image: url(../../images/CloseWhite.png);
   }
+
+  .modal__close_type_image {
+    background-image: url(../../assets/cross-light.png);
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    border: none;
+    top: 24px;
+    right: 24px;
+    background-repeat: no-repeat;
+    background-color: transparent;
+  }
+  
+  .modal__delete {
+    width: 101px;
+    height: 24px;
+    font-family: CabinetGrotesk-Bold, Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    line-height: 24px;
+    color: rgba(255, 77, 0, 1);
+    padding: 0;
+    border-width: 0;
+    white-space: nowrap;
+  }
