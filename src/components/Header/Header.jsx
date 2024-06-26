@@ -2,6 +2,7 @@ import "./Header.css";
 import logo from "../../images/Logo.png";
 import avatar from "../../images/Avatar.png";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
+import { Link } from "react-router-dom";
 
 function Header({ handleAddClick, weatherData }) {
   const DateComponent = () => {
@@ -21,9 +22,9 @@ function Header({ handleAddClick, weatherData }) {
   return (
     <header>
       <nav className="header">
-        <NavLink to="/">
+        <Link to="/">
           <img className="header__logo" src={logo} alt="App Logo" />
-        </NavLink>
+        </Link>
         <DateComponent />
 
         <div className="header__user-container">
@@ -37,13 +38,13 @@ function Header({ handleAddClick, weatherData }) {
           </button>
 
           <p className="header__username">Terrence Tegegne</p>
-          <NavLink to="/profile">
+          <Link to="/profile">
             <img
               src={avatar}
               alt="App Profile Image"
               className="header__avatar"
             />
-          </NavLink>
+          </Link>
         </div>
       </nav>
     </header>

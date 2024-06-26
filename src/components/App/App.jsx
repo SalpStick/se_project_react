@@ -4,12 +4,14 @@ import { coordinates, APIkey } from "../../utils/Constants";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
+// import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
 import { getWeather, filterWeatherData } from "../../utils/weatherAPI";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTempUnitContext.js";
 import { Routes, Route } from "react-router-dom";
 import Profile from "../Profile/Profile.jsx";
+import { getItems, addItems, deleteItems } from "../../utils/api";
+import AddItemModal from "../AddItemModal/AddItemModal";
 
 function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
@@ -24,7 +26,8 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [selectedWeather, setSelectedWeather] = useState(null);
-  const modalRef = useRef(null);
+  const isOpen = activeModal !== null;
+  const [clothingItems, setClothingItems] = useState([]);
 
   const handleAddClick = () => setActiveModal("add-garment");
   const closeActiveModal = () => setActiveModal("");
@@ -50,6 +53,12 @@ function App() {
       });
   };
 
+  const handleAddItemModalSubmit = (values) => {
+    return addItems(values).then((item) => {
+      setClothingItems([...clothingItems, item]);
+    });
+  };
+
   // const handleOutsideClick = (event) => {
   //   if (modalRef.current && !modalRef.current.contains(event.target)) {
   //     closeActiveModal();
@@ -63,6 +72,15 @@ function App() {
         setWeatherData(filteredData);
       })
       .catch(console.error);
+  }, []);
+
+  useEffect(() => {
+    getItems()
+      .then((data) => {
+        setClothingItems(data);
+        console.log(data);
+      })
+      .catch(console.err);
   }, []);
 
   // useEffect(() => {
@@ -111,7 +129,7 @@ function App() {
           <AddItemModal
             closeActiveModal={closeActiveModal}
             isOpen={activeModal === "add-garment"}
-            onAddItem={onAddItem}
+            onAddItem={addItems}
           />
           <ItemModal
             closeActiveModal={closeActiveModal}

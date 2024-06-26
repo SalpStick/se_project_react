@@ -119,5 +119,3 @@ export const coordinates = {
 };
 
 export const APIkey = "4062224a09332b45cf0ea8cc017b21ee";
-
-export const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState('F');

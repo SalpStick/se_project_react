@@ -2,8 +2,6 @@ import React from "react";
 import "./ToggleSwitch.css";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTempUnitContext.js";
 
-console.log("check");
-
 const ToggleSwitch = () => {
     // const [currentTempUnit, handleToggleSwitch] = useState("C")
 

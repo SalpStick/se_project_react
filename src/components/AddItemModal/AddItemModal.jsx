@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import "./AddItemModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
-import { useForm } from "../../Hooks/useForm.js";
 
 // onAddItem refers to handleAddItemSubmit, which is declared in App.js
 const AddItemModal = ({ isOpen, onAddItem, closeActiveModal }) => {
-  const { values, handleChange } = useForm({ name: "", link: "", weather: "" });
+  const { values, handleChange } = useState({ name: "", link: "", weather: "" });
   const { name, link, weather } = values
 
   function handleSubmit(e) {
