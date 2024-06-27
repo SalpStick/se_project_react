@@ -1,4 +1,61 @@
 .switch {
     display: flex;
     position: relative;
-}
+    margin: 0 20px 0 auto;
+  }
+
+.switch__box {
+    border-radius: 25px;
+    border:  2px solid #7E7E7E;
+    width: 50px;
+    height: 30px;
+    appearance: none;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+.switch__slider {
+    border-radius: 20px;
+    width: 30px;
+    height: 30px;
+    background-color: #000;
+    color: #000;
+    text-align: center;
+    position: absolute;
+    transition: left 0.2s linear;
+    z-index: 2;
+  }
+
+.switch__slider-F {
+    top: 3px;
+    left: 5px;
+  }
+
+.switch__slider-C {
+    top: 3px;
+    left: 25px;
+  }
+
+.switch__temp-F {
+    position: absolute;
+    top: -10px;
+    left: 15px;
+    color: #000;
+    font-size: 16px;
+    transition: color 0.2s linear;
+  }
+  
+.switch__temp-C {
+    position: absolute;
+    top: -10px;
+    left: 35px;
+    color: #000;
+    font-size: 16px;
+    transition: color 0.2s linear;
+  }
+
+.switch__active {
+    font-size: 16px;
+    color: #ffffff;
+    z-index: 3;
+  }

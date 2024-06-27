@@ -137,7 +137,7 @@ function App() {
             card={selectedCard}
             deleteCard={deleteCard}
           />
-        <Main weatherData={weatherData} handleCardClick={handleCardClick} />
+        {/* <Main weatherData={weatherData} handleCardClick={handleCardClick} /> */}
         <Footer />
         </CurrentTemperatureUnitContext.Provider>
       </div>
