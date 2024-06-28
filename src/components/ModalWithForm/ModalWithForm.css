@@ -81,12 +81,17 @@
     width: 124px;
     font-size: 16px;
     line-height: 20px;
-    font-family: inherit;
-    margin-top: 32px;
+    font-family: "Cabinet Grotesk", Times, serif;
+    margin: 10px 20px 36px 0;
     border-radius: 4px;
     transition: opacity 0.4s linear;
     cursor: pointer;
     flex-wrap: nowrap;
+    text-align: center;
+  }
+
+  .modal__submit-inactive{
+    opacity: 0.3;
   }
   
   .modal__submit:hover {

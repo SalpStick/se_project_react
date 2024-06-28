@@ -4,13 +4,22 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 
 // onAddItem refers to handleAddItemSubmit, which is declared in App.js
 const AddItemModal = ({ isOpen, onAddItem, closeActiveModal }) => {
-  const { values, handleChange } = useState({ name: "", link: "", weather: "" });
+  const [ values, setValues ] = useState({ name: "", link: "", weather: "" });
   const { name, link, weather } = values
+
+  const handleChange = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value });
+  };
 
   function handleSubmit(e) {
     e.preventDefault();
-    onAddItem({ name, link, weather });
-  }
+    onAddItem(values)
+      .then(() => {
+        closeActiveModal();
+        setValues({ name: "", imageUrl: "", weather: "" });
+      })
+      .catch();
+  };
 
   return (
     <ModalWithForm
@@ -28,8 +37,8 @@ const AddItemModal = ({ isOpen, onAddItem, closeActiveModal }) => {
         type="text"
         name="name"
         id="name"
-        placeholder="Name"
         value={name}
+        placeholder="Name"
         onChange={handleChange}
       />
       <label className="modal__label" htmlFor="link">
