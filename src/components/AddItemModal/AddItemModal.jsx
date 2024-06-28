@@ -3,8 +3,17 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 
 // onAddItem refers to handleAddItemSubmit, which is declared in App.js
 const AddItemModal = ({ isOpen, onAddItem, closeActiveModal }) => {
-  const [ values, setValues ] = useState({ name: "", link: "", weather: "" });
-  const { name, link, weather } = values
+  const [name, setName] = useState('');
+    const [link, setLink] = useState('');
+    const [weather, setWeather] = useState('');
+
+//   useEffect(()=>{
+//     if(isOpen){
+//         setName('');
+//         setLink('');
+//         setWeather('');
+//     }
+// }, [isOpen]);
 
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
