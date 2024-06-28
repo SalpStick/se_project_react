@@ -3,7 +3,7 @@ import ClothesSection from "../ClothesSection/ClothesSection";
 import react from "react";
 import "./Profile.css";
 
-function Profile({ weatherData, handleCardClick,clothingItems,handleAddClick }) {
+function Profile({ weatherData, handleCardClick, clothingItems, handleAddClick }) {
   return (
     <div className="profile__page">
       <SideBar weatherData={weatherData} />
