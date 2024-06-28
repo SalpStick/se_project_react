@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./AddItemModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 
 // onAddItem refers to handleAddItemSubmit, which is declared in App.js
@@ -45,7 +44,7 @@ const AddItemModal = ({ isOpen, onAddItem, closeActiveModal }) => {
         Image
       </label>
       <input
-        className="modal__image"
+        className="modal__input"
         type="url"
         name="link"
         id="link"

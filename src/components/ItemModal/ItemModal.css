@@ -14,9 +14,9 @@
   }
   
   .modal__image {
-    height: 498px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+    height: 498px;
     width: 100%;
   }
   
@@ -24,7 +24,7 @@
     background-image: url(../../images/CloseWhite.png);
   }
 
-  .modal__close_type_image {
+  .modal__close {
     background-image: url(../../assets/cross-light.png);
     position: absolute;
     height: 20px;
