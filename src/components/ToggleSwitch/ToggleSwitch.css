@@ -27,19 +27,17 @@
   }
 
 .switch__slider-F {
-    top: 3px;
-    left: 5px;
+    left: 0px;
   }
 
 .switch__slider-C {
-    top: 3px;
-    left: 25px;
+    left: 20px;
   }
 
 .switch__temp-F {
     position: absolute;
-    top: -10px;
-    left: 15px;
+    top: -12px;
+    left: 10px;
     color: #7E7E7E;
     font-size: 16px;
     transition: color 0.2s linear;
@@ -47,8 +45,8 @@
   
 .switch__temp-C {
     position: absolute;
-    top: -10px;
-    left: 35px;
+    top: -12px;
+    left: 30px;
     color: #7E7E7E;
     font-size: 16px;
     transition: color 0.2s linear;

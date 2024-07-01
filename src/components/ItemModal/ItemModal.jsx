@@ -1,8 +1,9 @@
   import "./ItemModal.css";
+  import App from "../App/App";
 
-function ItemModal({ activeModal, card, closeActiveModal }) {
+function ItemModal({ activeModal, card, closeActiveModal, deleteCard }) {
   const handleDeleteClose = () => {
-    deleteItems(card._id);
+    deleteCard(card._id);
   };
   
   return (

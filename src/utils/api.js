@@ -1,5 +1,6 @@
 const baseUrl = "http://localhost:3001";
 const headers = { "Content-Type": "application/json" };
+
 function _checkResponse(res) {
   if (res.ok) {
     return res.json();
@@ -11,15 +12,15 @@ function getItems() {
   return fetch(`${baseUrl}/items`).then(_checkResponse);
 }
 
-function addItems(name, imageUrl, weather) {
+function addItems(name, link, weather) {
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: headers,
     body: JSON.stringify({
       name,
-      imageUrl,
+      link,
       weather,
-    }),
+    })
   }).then(_checkResponse);
 }
 

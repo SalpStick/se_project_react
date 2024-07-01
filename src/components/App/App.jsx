@@ -53,10 +53,13 @@ function App() {
       });
   };
 
-  const handleAddItemModalSubmit = (values) => {
-    return addItems(values).then((item) => {
-      setClothingItems([...clothingItems, item]);
-    });
+  const handleAddItemModalSubmit = ( name, link, weather ) => {
+      addItems( name, link, weather )
+      .then((newItem) => {
+        setClothingItems([newItem, ...clothingItems]);
+        closeActiveModal();
+      })
+      .catch(console.error);
   };
 
   // const handleOutsideClick = (event) => {
@@ -129,7 +132,7 @@ function App() {
           <AddItemModal
             closeActiveModal={closeActiveModal}
             isOpen={activeModal === "add-garment"}
-            onAddItem={addItems}
+            onAddItem={handleAddItemModalSubmit}
           />
           <ItemModal
             closeActiveModal={closeActiveModal}

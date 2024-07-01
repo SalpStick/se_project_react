@@ -22,17 +22,22 @@
     color: black;
   }
   
-  .header__add-button {
+  .header__add-btn {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
     font-weight: 700;
     font-size: 20px;
     line-height: 24px;
-    border: none;
     font-family: "CabinetGrotesk";
     transition: opacity 0.2 ease-in-out;
+    cursor: pointer;
+    transition: border-color 0.25s;
   }
   
-  .header__add-button:hover {
+  .header__add-btn:hover {
     opacity: 0.6;
+    border-color: #646cff;
   }
   
   .header__user-container {
