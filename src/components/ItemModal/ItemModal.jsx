@@ -2,7 +2,7 @@
 
 function ItemModal({ activeModal, card, closeActiveModal }) {
   const handleDeleteClose = () => {
-    deleteCard(card._id);
+    deleteItems(card._id);
   };
   
   return (
