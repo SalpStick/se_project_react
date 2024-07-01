@@ -20,7 +20,7 @@ const AddItemModal = ({ isOpen, onAddItem, closeActiveModal }) => {
   };
 
   const handleLinkChange = (event) => {
-      setImageUrl(event.target.value);
+      setLink(event.target.value);
   };
 
   const handleWeatherChange = (event) => {
@@ -31,7 +31,7 @@ const AddItemModal = ({ isOpen, onAddItem, closeActiveModal }) => {
       event.preventDefault();
       const newItem = {
           name: name,
-          imageUrl: imageUrl,
+          link: link,
           weather: weather.toLowerCase()
       };
       onAddItem(newItem);
