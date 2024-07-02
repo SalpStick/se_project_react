@@ -35,7 +35,6 @@ const ToggleSwitch = () => {
               C
             </p>
           </label>
-        </>
       );
     };
 export default ToggleSwitch;
