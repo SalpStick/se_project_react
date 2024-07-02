@@ -7,7 +7,6 @@ const ToggleSwitch = () => {
         CurrentTemperatureUnitContext
       );
       return (
-        <>
           <label className="switch" htmlFor="temp__type">
             <input
               className="switch__box"

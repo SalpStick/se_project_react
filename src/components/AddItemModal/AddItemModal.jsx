@@ -32,7 +32,6 @@ const AddItemModal = ({ isOpen, onAddItem, closeActiveModal }) => {
   const handleSubmit = (event) => {
       event.preventDefault();
       onAddItem( name, link, weather );
-      closeActiveModal();
   };
 
   return (
