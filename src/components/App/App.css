@@ -1,6 +1,6 @@
 .page {
+    display: flex;
     background-color: #f3f3f3;
-    font-family: "Cabinet Grotesk", Times, serif;
   }
   
   .page__content {
