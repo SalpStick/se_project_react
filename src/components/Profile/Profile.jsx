@@ -3,7 +3,7 @@ import ClothesSection from "../ClothesSection/ClothesSection";
 import react from "react";
 import "./Profile.css";
 
-function Profile({ weatherData, handleCardClick, clothingItems, handleAddClick }) {
+function Profile({ weatherData, handleCardClick, clothingItems, handleAddClick, handleCardLike }) {
   return (
     <div className="profile__page">
       <SideBar weatherData={weatherData} />
@@ -13,6 +13,7 @@ function Profile({ weatherData, handleCardClick, clothingItems, handleAddClick }
         handleCardClick={handleCardClick}
         clothingItems = {clothingItems}
         handleAddClick={handleAddClick}
+        handleCardlike={handleCardLike}
       />
     </div>
   );

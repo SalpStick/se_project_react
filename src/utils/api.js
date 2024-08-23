@@ -30,4 +30,23 @@ function deleteItems(id) {
     .then(() => console.log("Card has been deleted"));
 }
 
-export { getItems, addItems, deleteItems, _checkResponse };
+function likeCard(cardId, token) {
+  return fetch(`${baseUrl}/items/${cardId}/likes`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  }).then((res) => processServerRequest(res));
+}
+
+function dislikeCard(cardId, token) {
+  return fetch(`${baseUrl}/items/${cardId}/likes`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }).then((res) => processServerRequest(res));
+}
+
+export { getItems, addItems, deleteItems, likeCard, dislikeCard, _checkResponse };

@@ -4,6 +4,11 @@
 function ItemModal({ activeModal, card, closeActiveModal, deleteCard }) {
   const handleDeleteClose = () => {
     deleteCard(card._id);
+    const isOwn = selectedCard.owner === currentUser._id;
+    
+    const itemDeleteButtonClassName = `modal__delete ${
+    isOwn ? "modal__delete_visible" : "modal__delete_hidden"
+  }`;
   };
   
   return (
@@ -24,7 +29,7 @@ function ItemModal({ activeModal, card, closeActiveModal, deleteCard }) {
           </div>
           <button
               onClick={handleDeleteClose}
-              className="modal__delete"
+              className={ itemDeleteButtonClassName }
               type="button"
             >
               Delete Item

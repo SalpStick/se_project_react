@@ -1,10 +1,10 @@
 import "./Header.css";
 import logo from "../../images/Logo.png";
-import avatar from "../../images/Avatar.png";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-function Header({ handleAddClick, weatherData }) {
+function Header({ handleAddClick, onLoginClick, onRegisterClick, weatherData, isLoggedIn }) {
   const DateComponent = () => {
     const currentDate = new Date();
     const options = {
@@ -18,6 +18,8 @@ function Header({ handleAddClick, weatherData }) {
       </h2>
     );
   };
+
+  const currentUser = useContext(CurrentUserContext);
 
   return (
     <header>
@@ -37,15 +39,44 @@ function Header({ handleAddClick, weatherData }) {
             +Add Clothes
           </button>
 
-          <p className="header__username">Terrence Tegegne</p>
-          <Link to="/profile">
-            <img
-              src={avatar}
-              alt="App Profile Image"
-              className="header__avatar"
-            />
-          </Link>
-        </div>
+          {!isLoggedIn && (
+          <>
+            <div>
+              <button
+                type="text"
+                className="header__register-btn"
+                onClick={onRegisterClick}
+              >
+                Sign Up
+              </button>
+            </div>
+            <div>
+              <button
+                type="text"
+                className="header__login-btn"
+                onClick={onLoginClick}
+              >
+                Log In
+              </button>
+            </div>
+          </>
+        )}
+
+        {isLoggedIn && (
+          <>
+            <Link to="/profile" className="header__profile-link">
+              <div>{currentUser.name}</div>
+            </Link>
+            <div>
+              <img
+                src={currentUser.avatar}
+                alt="logo"
+                className="header__avatar-image"
+              />
+            </div>
+          </>
+        )}
+      </div>
       </nav>
     </header>
   );

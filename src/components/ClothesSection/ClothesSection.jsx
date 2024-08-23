@@ -1,7 +1,7 @@
 import ItemCard from "../ItemCard/ItemCard";
 import "./ClothesSection.css";
 
-function ClothesSection({ handleCardClick, clothingItems, handleAddClick }) {
+function ClothesSection({ handleCardClick, clothingItems, handleAddClick, handleCardlike }) {
   return (
     <div className="clothes-section">
       <div className="clothes__button">
@@ -21,6 +21,7 @@ function ClothesSection({ handleCardClick, clothingItems, handleAddClick }) {
               key={item._id}
               item={item}
               onCardClick={handleCardClick}
+              onCardLike={handleCardlike}
             />
           );
         })}

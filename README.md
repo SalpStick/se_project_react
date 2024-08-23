@@ -1,8 +1,10 @@
-# React + Vite
+Express Link
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+https://github.com/SalpStick/se_project_express.git
 
-Currently, two official plugins are available:
+Figma
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[Link to the project on Figma] https://www.figma.com/design/BlrieGhuUXMk3OUbi4bHGC/Sprint-14%3A-WTWR?node-id=0-1&t=wl0UJPlFY8yedXMP-0
+Weather API
+
+[Link to Open Weather API] (https://openweathermap.org/)

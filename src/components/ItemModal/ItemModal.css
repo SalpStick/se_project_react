@@ -59,3 +59,11 @@
     margin-top: 19px;
     margin-right: 32px;
   }
+
+  .modal__delete_visible {
+    display: block;
+  }
+
+  .modal__delete_hidden {
+    display: none;
+  }

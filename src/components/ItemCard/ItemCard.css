@@ -20,4 +20,24 @@
     font-size: 16px;
     color: black;
   }
+
+  .card__like-button {
+    position: relative;
+    border: none;
+    background-image: url(../../images/LikeButton.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+    width: 18px;
+    height: 15px;
+    color: rgba(0, 0, 0, 0.6);
+    margin-left: 10px;
+  }
+  
+  .card__like-button_active {
+    background-image: url(../../images/LikeButtonActive.svg);
+    color: #000;
+  }
   
