@@ -1,6 +1,6 @@
 Express Link
 
-https://github.com/SalpStick/se_project_express.git
+https://github.com/SalpStick/se_project_express
 
 Figma
 
