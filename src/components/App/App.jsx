@@ -8,7 +8,7 @@ import Footer from "../Footer/Footer";
 import ItemModal from "../ItemModal/ItemModal";
 import { getWeather, filterWeatherData } from "../../utils/weatherAPI";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTempUnitContext.js";
-import { Routes, Route } from "react-router-dom";
+import { Route, Navigate, Routes, useNavigate } from "react-router-dom";
 import Profile from "../Profile/Profile.jsx";
 import { getItems, addItems, deleteItems } from "../../utils/api";
 import AddItemModal from "../AddItemModal/AddItemModal";
@@ -41,6 +41,8 @@ function App() {
   const handleAddClick = () => setActiveModal("add-garment");
   const closeActiveModal = () => setActiveModal("");
 
+  const navigate = useNavigate();
+
   const handleCardClick = (card) => {
     setActiveModal("preview");
     setSelectedCard(card);
@@ -50,8 +52,8 @@ function App() {
     setSelectedWeather(event.target.value);
   };
 
-  const deleteCard = (id) => {
-    deleteItems(id)
+  const deleteCard = (item) => {
+    deleteItems(item._id)
       .then(() => {
         setClothingItems(clothingItems.filter((card) => id !== card._id));
         closeActiveModal();
@@ -88,7 +90,7 @@ function App() {
         closeActiveModal();
         setCurrentUser(userData);
         setIsLoggedIn(true);
-        history.push("/profile");
+        navigate("/profile");
       })
       .catch((err) => {
         console.log("Error in handlelogin");
@@ -99,7 +101,7 @@ function App() {
     localStorage.clear();
     setCurrentUser({});
     setIsLoggedIn(false);
-    history.push("/");
+    navigate("/");
   };
 
   const handleRegisterSubmit = (values) => {
@@ -120,7 +122,7 @@ function App() {
         setCurrentUser(userData);
         setIsLoggedIn(true);
         console.log("From handle register");
-        history.push("profile");
+        navigate("/profile");
       })
       .catch((err) => {
         console.log("Error in handlelRegister: ", err.message);
@@ -133,7 +135,7 @@ function App() {
         setCurrentUser(userData.data);
         closeActiveModal();
         console.log(userData);
-        history.push("/profile");
+        navigate("/profile");
       })
       .catch((err) => {
         console.log("Error in handleEditProfile");
@@ -200,33 +202,45 @@ function App() {
           value={{ currentTemperatureUnit, handleToggleSwitchChange }}
         >
         <Header 
+         handleProfileClick={() => Navigate("/profile")}
           handleAddClick={handleAddClick}
           onLoginClick={handleLoginClick}
           onRegisterClick={handleCreateClick} 
           weatherData={weatherData} 
           isLoggedIn={isLoggedIn}/>
-        <Switch>
-          <ProtectedRoute path="/profile" loggedIn={isLoggedIn}>
-            <Profile
-              weatherData={weatherData}
-              handleCardClick={handleCardClick}
-              clothingItems={clothingItems}
-              handleAddClick={handleAddClick}
-              onLogOut={handleLogOut}
-              onEditProfile={handleEditClick}
-              onProfileChange={handleEditProfileSubmit}
-              onCardLIke={handleCardLike}
-            ></Profile>
-          </ProtectedRoute>
-          <Route exact path="/">
-            <Main
-              weatherData={weatherData}
-              handleCardClick={handleCardClick}
-              clothingItems={clothingItems}
-              onCardLIke={handleCardLike}
-            />
-          </Route>
-        </Switch>
+        <Routes>
+         <Route
+                path="/profile"
+                element={
+                  <ProtectedRoute
+                    element={
+                      <Profile
+                      weatherData={weatherData}
+                      handleCardClick={handleCardClick}
+                      clothingItems={clothingItems}
+                      handleAddClick={handleAddClick}
+                      onLogOut={handleLogOut}
+                      onEditProfile={handleEditClick}
+                      onProfileChange={handleEditProfileSubmit}
+                      onCardLIke={handleCardLike}
+                      />
+                    }
+                    loggedIn={isLoggedIn}
+                  />
+                }
+              />
+          <Route
+                path="/"
+                element={
+                  <Main
+                    weatherData={weatherData}
+                    handleCardClick={handleCardClick}
+                    clothingItems={clothingItems}
+                    onCardLike={handleCardLike}
+                  />
+                  }
+              />
+        </Routes>
 
           <AddItemModal
             closeActiveModal={closeActiveModal}

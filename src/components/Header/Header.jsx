@@ -3,6 +3,7 @@ import logo from "../../images/Logo.png";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import { useContext } from "react";
 
 function Header({ handleAddClick, onLoginClick, onRegisterClick, weatherData, isLoggedIn }) {
   const DateComponent = () => {

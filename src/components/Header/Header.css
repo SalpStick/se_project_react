@@ -62,3 +62,34 @@
     display: flex;
     margin-left: 20px;
   }
+
+  .header__register-btn {
+    margin: 0;
+    font-family: Cabinet Grotesk;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24.8px;
+    text-align: left;
+    color: #000;
+    text-decoration: none;
+    border: none;
+  }
+
+  .header__register-btn:hover {
+    cursor: pointer;
+  }
+
+  .header__login-btn {
+    font-family: Cabinet Grotesk;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24.8px;
+    text-align: left;
+    color: #000;
+    text-decoration: none;
+    border: none;
+}
+
+.header__login-btn:hover {
+    cursor: pointer;
+} 

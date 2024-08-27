@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import "./ItemCard.css";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-function ItemCard({ item, onCardClick, currentUser, onCardLike }) {
+function ItemCard({ item, onCardClick, onCardLike }) {
 
+  const currentUser = useContext(CurrentUserContext);
   if (!item || !item.likes) {
     return <li className="card">Error: Missing item data</li>;
   }

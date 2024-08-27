@@ -22,12 +22,11 @@ const LoginModal = ({ closeActiveModal, onLogin, isOpen }) => {
   return (
     <ModalWithForm
       title={"Log In"}
-      onClose={closeActiveModal}
+      closeActiveModal={closeActiveModal}
       modalType={"login"}
       buttonText={"Log In"}
       isOpen={isOpen}
       onSubmit={handleSubmit}
-      extraContent={<span className="modal__or_signup">or Sign Up</span>}
     >
       <div className="modal__input_wrapper">
         <label className="modal__label_input">

@@ -35,12 +35,11 @@ const RegisterModal = ({ closeActiveModal, onRegister, isOpen }) => {
   return (
     <ModalWithForm
       title={"Sign Up"}
-      onClose={closeActiveModal}
+      closeActiveModal={closeActiveModal}
       modalType={"register"}
       buttonText={"Sign Up"}
       isOpen={isOpen}
       onSubmit={handleSubmit}
-      extraContent={<span className="modal__or_login">or Log in</span>} // Create CSS for modal__or_login
     >
       <div className="modal__input_wrapper">
         <label className="modal__label_input">
