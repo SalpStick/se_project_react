@@ -10,7 +10,7 @@ import { getWeather, filterWeatherData } from "../../utils/weatherAPI";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTempUnitContext.js";
 import { Route, Navigate, Routes, useNavigate } from "react-router-dom";
 import Profile from "../Profile/Profile.jsx";
-import { getItems, addItems, deleteItems } from "../../utils/api";
+import { getItems, addItems, deleteItems, getUserInfo } from "../../utils/api";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import EditProfileModal from "../EditProfileModal/EditProfileModal";
 import LoginModal from "../LoginModal/LoginModal";
@@ -84,7 +84,7 @@ function App() {
       .then((data) => {
         const { token } = data;
         localStorage.setItem("jwt", token);
-        return fetchUserData(token);
+        return getUserInfo(token);
       })
       .then((userData) => {
         closeActiveModal();
@@ -114,7 +114,7 @@ function App() {
           throw new Error("No token found in signup response");
         }
         localStorage.setItem("jwt", token);
-        return fetchUserData(token);
+        return getUserInfo(token);
       })
       .then((userData) => {
         console.log("User data: ", userData);

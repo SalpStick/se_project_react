@@ -32,14 +32,6 @@ function Header({ handleAddClick, onLoginClick, onRegisterClick, weatherData, is
 
         <div className="header__user-container">
           <ToggleSwitch />
-          <button
-            className="header__add-btn"
-            type="button"
-            onClick={handleAddClick}
-          >
-            +Add Clothes
-          </button>
-
           {!isLoggedIn && (
           <>
             <div>
@@ -65,6 +57,13 @@ function Header({ handleAddClick, onLoginClick, onRegisterClick, weatherData, is
 
         {isLoggedIn && (
           <>
+          <button
+            className="header__add-btn"
+            type="button"
+            onClick={handleAddClick}
+          >
+            +Add Clothes
+          </button>
             <Link to="/profile" className="header__profile-link">
               <div>{currentUser.name}</div>
             </Link>

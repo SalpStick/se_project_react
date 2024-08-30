@@ -12,7 +12,18 @@ function getItems() {
   return fetch(`${baseUrl}/items`).then(_checkResponse);
 }
 
-function addItems(name, link, weather) {
+const getUserInfo = (token) => {
+  return fetch(`${baseUrl}/users/me`, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  }).then(_checkResponse);
+};
+
+function addItems(name, link, weather, owner) {
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: headers,
@@ -20,6 +31,7 @@ function addItems(name, link, weather) {
       name,
       link,
       weather,
+      owner,
     })
   }).then(_checkResponse);
 }
@@ -49,4 +61,4 @@ function dislikeCard(cardId, token) {
   }).then((res) => processServerRequest(res));
 }
 
-export { getItems, addItems, deleteItems, likeCard, dislikeCard, _checkResponse };
+export { getItems, addItems, deleteItems, likeCard, dislikeCard, _checkResponse, getUserInfo };
