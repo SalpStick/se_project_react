@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import { coordinates, APIkey } from "../../utils/Constants";
 import Header from "../Header/Header";
@@ -31,7 +31,6 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [selectedWeather, setSelectedWeather] = useState(null);
-  const isOpen = activeModal !== null;
   const [clothingItems, setClothingItems] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -262,13 +261,13 @@ function App() {
             closeActiveModal={closeActiveModal}
             isOpen={activeModal === "login"}
             onLogin={handleLoginSubmit}
-            handleOpenRegisterModal={setActiveModal("register")}
+            handleOpenRegisterModal={handleCreateClick}
           />
           <RegisterModal
             closeActiveModal={closeActiveModal}
             isOpen={activeModal === "register"}
             onRegister={handleRegisterSubmit} 
-            handleOpenLoginModal={setActiveModal("login")}
+            handleOpenLoginModal={handleLoginClick}
           />
         <Footer />
         </CurrentTemperatureUnitContext.Provider>
