@@ -30,4 +30,19 @@
   .modal__or_signup:hover {
     text-decoration: underline;
   }
+
+  .modal__option-btn {
+    margin-left: 12px;
+    font-family: Cabinet Grotesk;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: left;
+    justify-content: center;
+    color: rgba(0, 0, 0, 0.5);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+  }
   
