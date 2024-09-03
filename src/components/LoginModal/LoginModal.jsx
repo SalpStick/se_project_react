@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./LoginModal.css";
 
-const LoginModal = ({ closeActiveModal, onLogin, isOpen }) => {
+const LoginModal = ({ closeActiveModal, onLogin, isOpen, handleOpenRegisterModal }) => {
   const [email, setEmail] = useState("");
   const handleEmailChange = (e) => {
 
@@ -58,6 +58,13 @@ const LoginModal = ({ closeActiveModal, onLogin, isOpen }) => {
             required
           />
         </label>
+        <button
+          type="button"
+          className="modal__option-btn"
+          onClick={handleOpenRegisterModal}
+        >
+          or Register
+          </button>
       </div>
     </ModalWithForm>
   );

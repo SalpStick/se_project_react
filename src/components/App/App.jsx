@@ -262,11 +262,13 @@ function App() {
             closeActiveModal={closeActiveModal}
             isOpen={activeModal === "login"}
             onLogin={handleLoginSubmit}
+            handleOpenRegisterModal={setActiveModal("register")}
           />
           <RegisterModal
             closeActiveModal={closeActiveModal}
             isOpen={activeModal === "register"}
             onRegister={handleRegisterSubmit} 
+            handleOpenLoginModal={setActiveModal("login")}
           />
         <Footer />
         </CurrentTemperatureUnitContext.Provider>

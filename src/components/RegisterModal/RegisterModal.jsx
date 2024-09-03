@@ -5,7 +5,7 @@ import "./RegisterModal.css";
 // Register Modal - Sign Up - Email, Password, Name, Avatar URL
 // name, avatar, email, password
 
-const RegisterModal = ({ closeActiveModal, onRegister, isOpen }) => {
+const RegisterModal = ({ closeActiveModal, onRegister, isOpen, openLoginModal }) => {
   const [name, setName] = useState(""); // Not sure if this variable will need to be changed.
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -101,6 +101,13 @@ const RegisterModal = ({ closeActiveModal, onRegister, isOpen }) => {
           />
         </label>
       </div>
+      <button
+          className="modal__option-btn"
+          type="button"
+          onClick={openLoginModal}
+        >
+          or Log in
+        </button>
     </ModalWithForm>
   );
 };
