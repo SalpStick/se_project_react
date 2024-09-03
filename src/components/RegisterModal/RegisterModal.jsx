@@ -2,22 +2,18 @@ import React, { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./RegisterModal.css";
 
-// Register Modal - Sign Up - Email, Password, Name, Avatar URL
-// name, avatar, email, password
-
-const RegisterModal = ({ closeActiveModal, onRegister, isOpen, openLoginModal }) => {
-  const [name, setName] = useState(""); // Not sure if this variable will need to be changed.
+const RegisterModal = ({ closeActiveModal, onRegister, isOpen, handleOpenLoginModal }) => {
+  const [name, setName] = useState("");
   const handleNameChange = (e) => {
     setName(e.target.value);
   };
 
   const [email, setEmail] = useState("");
   const handleEmailChange = (e) => {
-    // Adapt for email-username
     setEmail(e.target.value);
   };
 
-  const [password, setPassword] = useState(""); // Adapt for password
+  const [password, setPassword] = useState(""); 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
@@ -104,7 +100,7 @@ const RegisterModal = ({ closeActiveModal, onRegister, isOpen, openLoginModal })
       <button
           className="modal__option-btn"
           type="button"
-          onClick={openLoginModal}
+          onClick={handleOpenLoginModal}
         >
           or Log in
         </button>
