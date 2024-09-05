@@ -9,8 +9,9 @@ import ItemModal from "../ItemModal/ItemModal";
 import { getWeather, filterWeatherData } from "../../utils/weatherAPI";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTempUnitContext.js";
 import { Route, Navigate, Routes, useNavigate } from "react-router-dom";
-import Profile from "../Profile/Profile.jsx";
-import { getItems, addItems, deleteItems, getUserInfo } from "../../utils/api";
+import Profile from "../Profile/Profile";
+import { getItems, addItems, deleteItems, getUserInfo, likeCard, dislikeCard } from "../../utils/api";
+import { signin, signup, fetchUserData, editProfile } from "../../utils/auth";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import EditProfileModal from "../EditProfileModal/EditProfileModal";
 import LoginModal from "../LoginModal/LoginModal";
@@ -33,6 +34,7 @@ function App() {
   const [selectedWeather, setSelectedWeather] = useState(null);
   const [clothingItems, setClothingItems] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
 
   const handleCreateClick = () => setActiveModal("register");
   const handleLoginClick = () => setActiveModal("login");
@@ -64,7 +66,8 @@ function App() {
   };
 
   const handleAddItemModalSubmit = ( name, link, weather ) => {
-      addItems( name, link, weather )
+    const owner = currentUser;
+      addItems( name, link, weather, owner )
       .then((newItem) => {
         setClothingItems([newItem, ...clothingItems]);
         closeActiveModal();
@@ -96,7 +99,7 @@ function App() {
       });
   };
 
-  const handleLogOut = () => {
+  const handleLogout = () => {
     localStorage.clear();
     setCurrentUser({});
     setIsLoggedIn(false);
@@ -106,9 +109,11 @@ function App() {
   const handleRegisterSubmit = (values) => {
     console.log("Register values: ", values);
     signup(values.name, values.avatar, values.email, values.password)
+    .then(() => { return signin(values.email, values.password); })
       .then((data) => {
         console.log("Signup response data", data);
         const { token } = data;
+        console.log({token});
         if (!token) {
           throw new Error("No token found in signup response");
         }
@@ -124,7 +129,7 @@ function App() {
         navigate("/profile");
       })
       .catch((err) => {
-        console.log("Error in handlelRegister: ", err.message);
+        console.log("Error in handleRegister: ", err.message);
       });
   };
 
@@ -195,6 +200,7 @@ function App() {
   };
 
   return (
+    <CurrentUserContext.Provider value={currentUser}>
     <div className="page">
       <div className="page__content">
       <CurrentTemperatureUnitContext.Provider
@@ -212,16 +218,16 @@ function App() {
                 path="/profile"
                 element={
                   <ProtectedRoute
-                    element={
+                    children={
                       <Profile
                       weatherData={weatherData}
                       handleCardClick={handleCardClick}
                       clothingItems={clothingItems}
                       handleAddClick={handleAddClick}
-                      onLogOut={handleLogOut}
-                      onEditProfile={handleEditClick}
-                      onProfileChange={handleEditProfileSubmit}
-                      onCardLIke={handleCardLike}
+                      handleLogout={handleLogout}
+                      handleEditProfile={handleEditClick}
+                      handleProfileChange={handleEditProfileSubmit}
+                      handleCardLike={handleCardLike}
                       />
                     }
                     loggedIn={isLoggedIn}
@@ -273,6 +279,7 @@ function App() {
         </CurrentTemperatureUnitContext.Provider>
       </div>
     </div>
+    </CurrentUserContext.Provider>
   );
 }
 

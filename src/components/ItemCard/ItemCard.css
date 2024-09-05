@@ -9,10 +9,14 @@
     width: 328px;
     border-radius: 10px;
   }
-  
-  .card__name {
+
+  .card__title {
+    display: flex;
     position: absolute;
     top: 15px;
+  }
+  
+  .card__name {
     margin: 0;
     background-color: white;
     padding: 5px;
@@ -22,7 +26,6 @@
   }
 
   .card__like-button {
-    position: relative;
     border: none;
     background-image: url(../../images/LikeButton.svg);
     background-repeat: no-repeat;
@@ -34,6 +37,7 @@
     height: 15px;
     color: rgba(0, 0, 0, 0.6);
     margin-left: 10px;
+    margin-top: 5px;
   }
   
   .card__like-button_active {

@@ -6,7 +6,6 @@ import { useContext } from "react";
 
 function ClothesSection({ handleCardClick, clothingItems, handleAddClick, handleCardlike }) {
   const currentUser = useContext(CurrentUserContext);
-  console.log(currentUser._id);
   const userClothingItems = clothingItems.filter(
     (item) => item.owner === currentUser._id
   );

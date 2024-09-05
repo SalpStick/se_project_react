@@ -28,6 +28,7 @@ function ItemCard({ item, onCardClick, onCardLike }) {
 
   return (
     <li className="card">
+      <div className="card__title">
       <h2 className="card__name">{item.name}</h2>
       {currentUser && (
           <button
@@ -36,10 +37,11 @@ function ItemCard({ item, onCardClick, onCardLike }) {
             onClick={handleLike}
           ></button>
       )}
+      </div>
       <img
         onClick={handleCardClick}
         className="card__image"
-        src={item.link}
+        src={item.imageUrl}
         alt={item.name}
       />
     </li>

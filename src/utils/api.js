@@ -1,5 +1,4 @@
 const baseUrl = "http://localhost:3001";
-const headers = { "Content-Type": "application/json" };
 
 function _checkResponse(res) {
   if (res.ok) {
@@ -16,28 +15,35 @@ const getUserInfo = (token) => {
   return fetch(`${baseUrl}/users/me`, {
     method: "GET",
     headers: {
-      Accept: "application/json",
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
   }).then(_checkResponse);
 };
 
-function addItems(name, link, weather, owner) {
+function addItems(name, link, weather) {
+  const token = localStorage.getItem("jwt");
   return fetch(`${baseUrl}/items`, {
     method: "POST",
-    headers: headers,
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
     body: JSON.stringify({
       name,
-      link,
+      imageUrl: link,
       weather,
-      owner,
-    })
+    }),
   }).then(_checkResponse);
 }
 
 function deleteItems(id) {
-  return fetch(`${baseUrl}/items/${id}`, { method: "DELETE", headers: headers })
+  return fetch(`${baseUrl}/items/${id}`, { 
+    method: "DELETE", 
+    headers: {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`,
+  }, })
     .then(_checkResponse)
     .then(() => console.log("Card has been deleted"));
 }
@@ -49,7 +55,7 @@ function likeCard(cardId, token) {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-  }).then((res) => processServerRequest(res));
+  }).then(_checkResponse);
 }
 
 function dislikeCard(cardId, token) {
@@ -58,7 +64,7 @@ function dislikeCard(cardId, token) {
     headers: {
       Authorization: `Bearer ${token}`,
     },
-  }).then((res) => processServerRequest(res));
+  }).then(_checkResponse);
 }
 
 export { getItems, addItems, deleteItems, likeCard, dislikeCard, _checkResponse, getUserInfo };

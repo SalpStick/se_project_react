@@ -64,14 +64,14 @@ function Header({ handleAddClick, onLoginClick, onRegisterClick, weatherData, is
           >
             +Add Clothes
           </button>
-            <Link to="/profile" className="header__profile-link">
+            <Link to="/profile" className="header__username">
               <div>{currentUser.name}</div>
             </Link>
             <div>
               <img
                 src={currentUser.avatar}
                 alt="logo"
-                className="header__avatar-image"
+                className="header__avatar"
               />
             </div>
           </>

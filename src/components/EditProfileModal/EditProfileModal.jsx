@@ -22,7 +22,7 @@ const EditProfileModal = ({ closeActiveModal, onEditProfile, isOpen }) => {
   return (
     <ModalWithForm
       title={"Change profile data"}
-      onClose={closeActiveModal}
+      closeActiveModal={closeActiveModal}
       modalType={"edit_profile"}
       buttonText={"Save changes"}
       isOpen={isOpen}
