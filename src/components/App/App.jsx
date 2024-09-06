@@ -54,7 +54,10 @@ function App() {
   };
 
   const deleteCard = (item) => {
-    deleteItems(item._id)
+    const token = localStorage.getItem("jwt");
+    const id = item._id;
+
+    deleteItems(id, token)
       .then(() => {
         setClothingItems(clothingItems.filter((card) => id !== card._id));
         closeActiveModal();
@@ -86,6 +89,7 @@ function App() {
       .then((data) => {
         const { token } = data;
         localStorage.setItem("jwt", token);
+        setCookies
         return getUserInfo(token);
       })
       .then((userData) => {
@@ -169,6 +173,20 @@ function App() {
   };
 
   useEffect(() => {
+    if (!localStorage.getItem("jwt")) {
+      return;
+    }
+
+    getUserInfo(localStorage.getItem("jwt"))
+      .then(({ name, email, avatar, _id }) => {
+        setIsLoggedIn(true);
+        setCurrentUser({ name, email, avatar, _id });
+        navigate("/");
+      })
+      .catch(console.error);
+  }, []);
+
+  useEffect(() => {
     getWeather(coordinates, APIkey)
       .then((data) => {
         const filteredData = filterWeatherData(data);
@@ -241,7 +259,7 @@ function App() {
                     weatherData={weatherData}
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
-                    onCardLike={handleCardLike}
+                    handleCardLike={handleCardLike}
                   />
                   }
               />

@@ -37,7 +37,7 @@ function addItems(name, link, weather) {
   }).then(_checkResponse);
 }
 
-function deleteItems(id) {
+function deleteItems(id, token) {
   return fetch(`${baseUrl}/items/${id}`, { 
     method: "DELETE", 
     headers: {
