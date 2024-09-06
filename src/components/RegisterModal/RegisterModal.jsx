@@ -36,6 +36,8 @@ const RegisterModal = ({ closeActiveModal, onRegister, isOpen, handleOpenLoginMo
       buttonText={"Sign Up"}
       isOpen={isOpen}
       onSubmit={handleSubmit}
+      onLinkClick={handleOpenLoginModal}
+      linkText="or Log in"
     >
       <div className="modal__input_wrapper">
         <label className="modal__label_input">
@@ -97,13 +99,6 @@ const RegisterModal = ({ closeActiveModal, onRegister, isOpen, handleOpenLoginMo
           />
         </label>
       </div>
-      <button
-          className="modal__option-btn"
-          type="button"
-          onClick={handleOpenLoginModal}
-        >
-          or Log in
-        </button>
     </ModalWithForm>
   );
 };

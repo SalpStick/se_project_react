@@ -5,15 +5,15 @@ import App from "../App/App.jsx";
 // onAddItem refers to handleAddItemSubmit, which is declared in App.js
 const AddItemModal = ({ isOpen, onAddItem, closeActiveModal }) => {
   const [name, setName] = useState('');
-    const [link, setLink] = useState('');
-    const [weather, setWeather] = useState('');
+  const [link, setLink] = useState('');
+  const [weather, setWeather] = useState('');
 
-    useEffect(()=>{
-      if(isOpen){
-          setName('');
-          setLink('');
-          setWeather('');
-      }
+  useEffect(()=>{
+    if(isOpen){
+        setName('');
+        setLink('');
+        setWeather('');
+    }
   }, [isOpen]);
 
   const handleNameChange = (event) => {

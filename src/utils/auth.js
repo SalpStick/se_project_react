@@ -1,11 +1,5 @@
 const BASE_URL = "http://localhost:3001";
-
-export const processServerResponse = (res) => {
-  if (res.ok) {
-    return res.json();
-  }
-  return Promise.reject(`Error: ${res.status}`);
-};
+import { _checkResponse } from "./api";
 
 export const signup = (name, avatar, email, password) => {
   return fetch(`${BASE_URL}/signup`, {
@@ -15,7 +9,7 @@ export const signup = (name, avatar, email, password) => {
     },
     body: JSON.stringify({ name, avatar, email, password }),
   })
-    .then(processServerResponse)
+    .then(_checkResponse)
     .then((data) => {
       console.log("Processed signup response: ", data);
       return data;
@@ -29,7 +23,7 @@ export const signin = (email, password) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ email, password }),
-  }).then(processServerResponse);
+  }).then(_checkResponse);
 };
 
 export const editProfile = ({ name, avatar }) => {
@@ -45,7 +39,7 @@ export const editProfile = ({ name, avatar }) => {
       name,
       avatar,
     }),
-  }).then(processServerResponse);
+  }).then(_checkResponse);
 };
 
 export const fetchUserData = (token) => {
@@ -56,7 +50,7 @@ export const fetchUserData = (token) => {
       "Content-Type": "application/json",
     },
   })
-    .then((res) => res.json())
+    .then(_checkResponse)
     .then((data) => {
       if (!data) {
         throw new Error("Failed to fetch user data");

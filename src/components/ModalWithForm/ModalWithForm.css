@@ -123,4 +123,19 @@
   .modal__close {
     background-image: url("../../images/Close.png");
   }
+
+  .modal__option-btn {
+    margin-left: 0;
+    font-family: Cabinet Grotesk;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: left;
+    justify-content: center;
+    color: rgba(0, 0, 0, 0.5);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+  }
   
