@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://api.wtwr1.ignorelist.com",
+  "homepage": "https://wtwr1.ignorelist.com",
   "scripts": {
     "dev": "vite --open",
     "build": "vite build",
