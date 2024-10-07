@@ -1,5 +1,5 @@
 const baseUrl = process.env.NODE_ENV === "production"
-? "https://api.wtwr-domain.ignorelist.com"
+? "https://api.wtwr1.ignorelist.com"
 : "http://localhost:3001";
 
 function _checkResponse(res) {
