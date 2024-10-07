@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3001";
+const BASE_URL = "http://api.wtwr1.ignorelist.com";
 import { _checkResponse } from "./api";
 
 export const signup = (name, avatar, email, password) => {
